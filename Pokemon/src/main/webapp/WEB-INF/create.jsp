@@ -10,7 +10,15 @@
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>
 		<main class="container">
-		hello im create
+			<form>
+				<fieldset>
+					<legend>
+						<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png">
+						create a Pokemon
+						<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png">
+					</legend>
+				</fieldset>
+			</form>
 		</main>
 		<jsp:include page="footer.jsp"></jsp:include>
 		<jsp:include page="./bottomScript.js"></jsp:include>

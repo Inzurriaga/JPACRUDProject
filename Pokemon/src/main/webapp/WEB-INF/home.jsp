@@ -37,7 +37,7 @@
 				});
 			setTimeout(() => {
 				window.location = url
-			}, 750);
+			}, 1000);
 		} 
 	</script>
 </html>
