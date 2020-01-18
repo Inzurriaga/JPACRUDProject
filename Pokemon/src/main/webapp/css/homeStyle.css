@@ -1,0 +1,62 @@
+main {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+	height: 40vh;
+}
+
+a {
+	min-width: 500px;
+	height: 65px;
+	font-weight: bold;
+	font-size: 2em;
+	background-color: #ffffff;
+	border-radius: 100px;
+	text-align: center;
+	position: relative;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+img {
+	height: 65px;
+	position: absolute;
+	left: 0;
+}
+
+.intro-animation-button {
+	left: -100%;
+	animation: intro-button-animation 0.5s forwards;
+}
+
+.exit-animation-button {
+	left: 0;
+	animation: exit-button-animation 0.5s forwards;
+}
+
+a:nth-child(2) {
+	animation-delay: 0.25s;	
+}
+
+a:nth-child(3) {
+	animation-delay: 0.5s;
+}
+
+@keyframes intro-button-animation {
+	from {
+		left: -100%;
+	}
+  	to {
+  		left: 0;
+  	}
+}
+
+@keyframes exit-button-animation {
+	from {
+		left: 0;
+	}
+  	to {
+  		left: -100%;
+  	}
+}
