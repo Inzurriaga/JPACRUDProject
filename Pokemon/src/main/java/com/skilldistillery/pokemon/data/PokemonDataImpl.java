@@ -30,8 +30,8 @@ public class PokemonDataImpl implements PokemonData {
 
 	@Override
 	public List<Pokemon> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT poke FROM Pokemon poke";
+		return em.createQuery(query, Pokemon.class).getResultList();
 	}
 
 	@Override

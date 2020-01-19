@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.pokemon.data.PokemonData;
+import com.skilldistillery.pokemon.entities.Pokemon;
 
 @Controller
 public class PokemonContoller {
@@ -28,11 +29,6 @@ public class PokemonContoller {
 		return "create";
 	}
 	
-	@RequestMapping("/pokedex.do")
-	public String pokedex() {
-		return "pokedex";
-	}
-	
 	@RequestMapping(path = "/searchPokemonById.do")
 	public String searchById(@RequestParam("dexNumber") Integer dex, Model model) {
 		model.addAttribute("pokemon", dao.findById(dex));
@@ -44,4 +40,32 @@ public class PokemonContoller {
 		model.addAttribute("pokemons", dao.findByName(name));
 		return "pokedex";
 	}
+	
+	@RequestMapping(path = "/pokedex.do")
+	public String findAllPokemon(Model model) {
+		model.addAttribute("pokemons", dao.findAll());
+		return "pokedex";
+	}
+	
+	@RequestMapping(path = "/addPokemonToDB.do")
+	public String addPokemonToDB(Pokemon pokemon, Model model) {
+		Pokemon createdPokemon = dao.create(pokemon);
+		if(createdPokemon.getId() == 0) {
+			return "error";
+		} else {
+			model.addAttribute("pokemons", dao.findById(createdPokemon.getId()));
+			return "displayInfo";
+		}
+	}
+	
+//	@RequestMapping(path = "/deletePokemonFromDB.do")
+//	public String deletePokemonToDB(Integer id, Model model) {
+//		Pokemon createdPokemon = dao.create(pokemon);
+//		if(createdPokemon.getId() == 0) {
+//			return "error";
+//		} else {
+//			model.addAttribute("pokemons", dao.findById(createdPokemon.getId()));
+//			return "displayInfo";
+//		}
+//	}
 }
