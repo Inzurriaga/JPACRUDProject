@@ -21,12 +21,12 @@
 				</article>
 			</section>
 			<section>
-				<form action="" method="POST">
-					<input type="hidden" name="id" value="${pokemon.id}" id="update-form"/>
+				<form action="pokemonUpdateForm.do" method="POST" id="update-pokemon">
+					<input type="hidden" name="id" value="${pokemon.id}"/>
 					<button type="button" id="update">update</button>
 				</form>
-				<form action="deletePokemonFromDB.do" method="POST">
-					<input type="hidden" name="id" value="${pokemon.id}" id="delete-form"/>
+				<form action="deletePokemonFromDB.do" method="POST" id="delete-pokemon">
+					<input type="hidden" name="id" value="${pokemon.id}"/>
 					<button type="button" id="delete">delete</button>
 				</form>
 			</section>

@@ -36,7 +36,6 @@ public class PokemonDataImpl implements PokemonData {
 
 	@Override
 	public boolean delete(int id) {
-		System.out.println("what up im in deleted " + id);
 		Pokemon pokemon = em.find(Pokemon.class, id);
 		em.remove(pokemon);
 		if(em.contains(pokemon)) {
