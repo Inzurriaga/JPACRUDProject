@@ -53,19 +53,27 @@ public class PokemonContoller {
 		if(createdPokemon.getId() == 0) {
 			return "error";
 		} else {
-			model.addAttribute("pokemons", dao.findById(createdPokemon.getId()));
+			Pokemon poke = dao.findById(createdPokemon.getId());
+			System.out.println("helli im being found " + poke);
+			model.addAttribute("pokemon", poke);
 			return "displayInfo";
 		}
 	}
 	
-//	@RequestMapping(path = "/deletePokemonFromDB.do")
-//	public String deletePokemonToDB(Integer id, Model model) {
-//		Pokemon createdPokemon = dao.create(pokemon);
-//		if(createdPokemon.getId() == 0) {
-//			return "error";
-//		} else {
-//			model.addAttribute("pokemons", dao.findById(createdPokemon.getId()));
-//			return "displayInfo";
-//		}
-//	}
+	@RequestMapping(path = "/deletePokemonFromDB.do")
+	public String deletePokemonToDB(Integer id, Model model) {
+		boolean deleted = dao.delete(id);
+		if(deleted) {
+			return "deleteConfirm";
+		} else {
+			return "error";
+		}
+	}
+	
+	@RequestMapping(path = "/pokemonUpdateForm.do")
+	public String pokemonUpdateForm(Integer id, Model model) {
+		model.addAttribute("pokemon", dao.findById(id));
+		System.out.println("hello im in the update");
+		return "home";
+	}
 }

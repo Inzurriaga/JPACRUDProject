@@ -36,8 +36,14 @@ public class PokemonDataImpl implements PokemonData {
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println("what up im in deleted " + id);
+		Pokemon pokemon = em.find(Pokemon.class, id);
+		em.remove(pokemon);
+		if(em.contains(pokemon)) {
+			return false;
+		}  else {
+			return true;
+		}
 	}
 
 	@Override
@@ -48,8 +54,8 @@ public class PokemonDataImpl implements PokemonData {
 
 	@Override
 	public Pokemon create(Pokemon pokemon) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(pokemon);
+		return pokemon;
 	}
 
 }

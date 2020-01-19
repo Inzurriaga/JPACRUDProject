@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `pokemon` (
   `height_inches` DOUBLE NOT NULL,
   `weight_pounds` DOUBLE NOT NULL,
   `image_url` VARCHAR(500) NULL,
-  `type` SET('normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon') NULL,
+  `type` VARCHAR(100) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

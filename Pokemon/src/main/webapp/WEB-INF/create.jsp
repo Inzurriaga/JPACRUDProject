@@ -11,7 +11,7 @@
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>
 		<main class="container">
-			<form action="javascript:;" class="form-intro" onsubmit="changePage('hello wlrd')" method="Post">
+			<form action="addPokemonToDB.do" class="form-intro" method="Post">
 				<fieldset>
 					<legend>
 						<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png">
@@ -19,12 +19,12 @@
 						<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png">
 					</legend>
 					<section>
-						<input type="number" placeholder="Pokedex #" class="form-control" />
-						<input type="text" placeholder="name" class="form-control" />
-						<textarea placeholder="description" class="form-control" ></textarea>
-						<input type="number" placeholder="height in inches" class="form-control" />
-						<input type="number" placeholder="weight in pounds" class="form-control" />
-						<input type="text" placeholder="image url" class="form-control" />
+						<input type="number" placeholder="Pokedex #" name="pokedexNumber" class="form-control"/>
+						<input type="text" placeholder="name" name="name" class="form-control"/>
+						<textarea placeholder="description" name="description" class="form-control"></textarea>
+						<input type="number" placeholder="height in inches" name="heightInches" class="form-control"/>
+						<input type="number" placeholder="weight in pounds" name="weightPounds" class="form-control"/>
+						<input type="text" placeholder="image url" name="imageUrl" class="form-control"/>
 						<div>
 							<h4>Type</h4>
 							<label>
@@ -88,7 +88,7 @@
 								<input type="checkbox" name="type" value="dragon">
 							</label>
 						</div>
-						<input type="submit" value="submit"/>
+						<button type="button">Create</button>
 					</section>
 				</fieldset>
 			</form>
@@ -96,15 +96,14 @@
 		<jsp:include page="footer.jsp"></jsp:include>
 		<jsp:include page="./bottomScript.js"></jsp:include>
 		<script type="text/javascript">
-			let form = document.querySelector("form");
-			function changePage(url) {
-						console.log(url)
-						form.classList.remove("form-intro");;
-						form.classList.add("form-exit");
-				setTimeout(() => {
-					window.location = url
-				}, 500);
-			}
+			document.querySelector("button")
+					.addEventListener("click", () => {
+						document.querySelector("form").classList.remove("form-intro");;
+						document.querySelector("form").classList.add("form-exit");
+						setTimeout(() => {
+							document.querySelector("form").submit();
+						}, 500);
+					});
 		</script>
 	</body>
 </html>
