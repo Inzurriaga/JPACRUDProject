@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.pokemon.data.PokemonData;
@@ -53,9 +54,7 @@ public class PokemonContoller {
 		if(createdPokemon.getId() == 0) {
 			return "error";
 		} else {
-			Pokemon poke = dao.findById(createdPokemon.getId());
-			System.out.println("helli im being found " + poke);
-			model.addAttribute("pokemon", poke);
+			model.addAttribute("pokemon", dao.findById(createdPokemon.getId()));
 			return "displayInfo";
 		}
 	}
@@ -73,7 +72,17 @@ public class PokemonContoller {
 	@RequestMapping(path = "/pokemonUpdateForm.do")
 	public String pokemonUpdateForm(Integer id, Model model) {
 		model.addAttribute("pokemon", dao.findById(id));
-		System.out.println("hello im in the update");
-		return "home";
+		return "update";
+	}
+	
+	@RequestMapping(path = "/updatePokemonToDB.do", method = RequestMethod.POST)
+	public String updatePokemonToDB(Pokemon pokemon, Model model) {
+		boolean updated = dao.update(pokemon);
+		if(updated) {
+			model.addAttribute("pokemon", pokemon);
+			return "displayInfo";
+		} else {
+			return "error";
+		}
 	}
 }

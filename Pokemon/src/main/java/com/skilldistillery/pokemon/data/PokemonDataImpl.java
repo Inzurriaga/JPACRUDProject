@@ -47,8 +47,15 @@ public class PokemonDataImpl implements PokemonData {
 
 	@Override
 	public boolean update(Pokemon pokemon) {
-		// TODO Auto-generated method stub
-		return false;
+		Pokemon managePokemon = em.find(Pokemon.class, pokemon.getId());
+		managePokemon.setPokedexNumber(pokemon.getPokedexNumber());
+		managePokemon.setName(pokemon.getName());
+		managePokemon.setDescription(pokemon.getDescription());
+		managePokemon.setHeightInches(pokemon.getHeightInches());
+		managePokemon.setWeightPounds(pokemon.getWeightPounds());
+		managePokemon.setImageUrl(pokemon.getImageUrl());
+		managePokemon.setType(pokemon.getType());
+		return true;
 	}
 
 	@Override
