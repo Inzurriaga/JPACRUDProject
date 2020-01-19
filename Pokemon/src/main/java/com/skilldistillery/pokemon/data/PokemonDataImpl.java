@@ -18,8 +18,14 @@ public class PokemonDataImpl implements PokemonData {
 	private EntityManager em;
 	
 	@Override
-	public Pokemon find(int id) {
+	public Pokemon findById(int id) {
 		return em.find(Pokemon.class, id);
+	}
+	
+	@Override
+	public List<Pokemon> findByName(String name) {
+		String query = "SELECT poke FROM Pokemon poke WHERE poke.name LIKE :name";
+		return em.createQuery(query, Pokemon.class).setParameter("name", "%"+name+"%").getResultList();
 	}
 
 	@Override

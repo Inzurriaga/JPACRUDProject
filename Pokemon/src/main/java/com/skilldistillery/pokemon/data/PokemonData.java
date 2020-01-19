@@ -5,7 +5,8 @@ import java.util.List;
 import com.skilldistillery.pokemon.entities.Pokemon;
 
 public interface PokemonData {
-	public Pokemon find(int id);
+	public Pokemon findById(int id);
+	public List<Pokemon> findByName(String name);
 	public List<Pokemon> findAll();
 	public boolean delete(int id);
 	public boolean update(Pokemon pokemon);

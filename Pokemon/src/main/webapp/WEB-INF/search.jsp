@@ -11,7 +11,7 @@
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>
 		<main class="container">
-			<form  action="javascript:;" onsubmit="changePage('searchByPokedex.do/?pokedex#=')" class="form-one-intro">
+			<form  action="/searchPokemonById.do" id="search-dex-form" class="form-one-intro" method="GET">
 				<fieldset>
 					<legend>
 						<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png">
@@ -19,12 +19,12 @@
 						<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png">
 					</legend>
 					<section>
-						<input type="number" placeholder="Pokedex Number" class="form-control"/>
-						<input type="submit" />
+						<input type="number" placeholder="Pokedex Number" name="dexNumber" class="form-control"/>
+						<button type="button" id="submit-dex">Submit</button>
 					</section>
 				</fieldset>
 			</form>
-			<form  action="javascript:;" onsubmit="changePage('searchByName.do/?name=')" class="form-two-intro">
+			<form  action="/searchPokemonByName.do" id="search-name-form" class="form-two-intro" method="GET">
 				<fieldset>
 					<legend>
 						<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png">
@@ -32,8 +32,8 @@
 						<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png">
 					</legend>
 					<section>
-						<input type="text" placeholder="Pokemon Name" class="form-control"/>
-						<input type="submit" />
+						<input type="text" placeholder="Pokemon Name" name="pokeName"class="form-control"/>
+						<button type="button" id="submit-name">Submit</button>
 					</section>
 				</fieldset>
 			</form>
@@ -42,16 +42,26 @@
 		<jsp:include page="./bottomScript.js"></jsp:include>
 		<script type="text/javascript">
 		let form = document.querySelectorAll("form");
-		function changePage(url) {
-					console.log(url)
+		document.querySelector("#submit-dex")
+				.addEventListener("click", () => {
+					PageAnimation();
+					setTimeout(() => {
+						document.querySelector("#search-dex-form").submit();
+					}, 500);
+				});
+		document.querySelector("#submit-name")
+				.addEventListener("click", () => {
+					PageAnimation();
+					setTimeout(() => {
+						document.querySelector("#search-name-form").submit();
+					}, 500);
+				s});
+		function PageAnimation() {
 					form[0].classList.remove("form-one-intro");
 					form[0].classList.add("form-one-exit");
 					form[1].classList.remove("form-two-intro");
 					form[1].classList.add("form-two-exit");
-			setTimeout(() => {
-				window.location = url
-			}, 500);
-		} 
+		};
 	</script>
 	</body>
 </html>
