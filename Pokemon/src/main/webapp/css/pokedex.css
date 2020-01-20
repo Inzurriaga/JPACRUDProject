@@ -28,7 +28,7 @@ img:hover {
 
 @keyframes intro {
 	from {
-		right: -100%;
+		right: -120%;
 	}
 	to {
 		right: 0;  

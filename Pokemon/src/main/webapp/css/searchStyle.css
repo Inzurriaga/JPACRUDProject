@@ -67,7 +67,7 @@ button {
 
 @keyframes form-one-intro {
 	from {
-		left: -100%;
+		left: -120%;
 	}
   	to {
   		left: 0;
@@ -76,7 +76,7 @@ button {
 
 @keyframes form-two-intro {
 	from {
-		right: -100%;
+		right: -120%;
 	}
   	to {
   		right: 0;
@@ -88,7 +88,7 @@ button {
 		left: 0;
 	}
   	to {
-  		left: -100%;
+  		left: -120%;
   	}
 }
 
@@ -97,6 +97,6 @@ button {
 		right: 0;
 	}
   	to {
-  		right: -100%;
+  		right: -120%;
   	}
 }

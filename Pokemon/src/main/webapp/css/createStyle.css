@@ -71,7 +71,7 @@ input[type=submit] {
 
 @keyframes form-intro {
 	from {
-		right: -100%;
+		right: -120%;
 	}
   	to {
   		right: 0;
@@ -83,6 +83,6 @@ input[type=submit] {
 		right: 0;
 	}
   	to {
-  		right: -100%;
+  		right: -120%;
   	}
 }
