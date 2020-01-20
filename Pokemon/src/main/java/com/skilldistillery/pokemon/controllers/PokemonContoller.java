@@ -1,11 +1,14 @@
 package com.skilldistillery.pokemon.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.pokemon.data.PokemonData;
 import com.skilldistillery.pokemon.entities.Pokemon;
@@ -32,7 +35,9 @@ public class PokemonContoller {
 	
 	@RequestMapping(path = "/searchPokemonById.do")
 	public String searchById(@RequestParam("dexNumber") Integer dex, Model model) {
-		model.addAttribute("pokemon", dao.findById(dex));
+		Pokemon pokemon = dao.findById(dex);
+		model.addAttribute("pokemon", pokemon);
+		model.addAttribute("types", convertTypeData(pokemon.getType()));
 		return "displayInfo";
 	}
 	
@@ -54,8 +59,7 @@ public class PokemonContoller {
 		if(createdPokemon.getId() == 0) {
 			return "error";
 		} else {
-			model.addAttribute("pokemon", dao.findById(createdPokemon.getId()));
-			return "displayInfo";
+			return "redirect:searchPokemonById.do?dexNumber=" + createdPokemon.getId();
 		}
 	}
 	
@@ -63,7 +67,7 @@ public class PokemonContoller {
 	public String deletePokemonToDB(Integer id, Model model) {
 		boolean deleted = dao.delete(id);
 		if(deleted) {
-			return "deleteConfirm";
+			return "redirect:/";
 		} else {
 			return "error";
 		}
@@ -76,13 +80,16 @@ public class PokemonContoller {
 	}
 	
 	@RequestMapping(path = "/updatePokemonToDB.do", method = RequestMethod.POST)
-	public String updatePokemonToDB(Pokemon pokemon, Model model) {
+	public String updatePokemonToDB(Pokemon pokemon, RedirectAttributes redir) {
 		boolean updated = dao.update(pokemon);
 		if(updated) {
-			model.addAttribute("pokemon", pokemon);
-			return "displayInfo";
+			return "redirect:searchPokemonById.do?dexNumber=" + pokemon.getId();
 		} else {
 			return "error";
 		}
+	}
+	
+	private String[] convertTypeData(String type) {
+		return type.split(",");
 	}
 }

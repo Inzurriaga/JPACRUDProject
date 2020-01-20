@@ -1,0 +1,228 @@
+main {
+	position: relative;
+	height: 100%;
+}
+
+img {
+	height: 300px;
+	position: absolute;
+	bottom: 150px;
+	left: 20%;
+}
+
+.right {
+	color: #ffffff;
+	width: 30%;
+	position: absolute;
+	right: 20%;
+	top: 100px;
+}
+
+.info {
+	background-color: #313131;
+	padding: 20px;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-around;
+}
+
+button {
+	font-size: 1.5em;
+	background-color: #ee6b2f;
+	color: #ffffff;
+	border-radius: 10px;
+	border: none;
+}
+
+button:hover {
+	background-color: #da471b;
+}
+
+.type {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.type div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	width: 20%;
+	padding: 5px;
+	margin: 5px 5px;
+}
+
+.type div p{
+	margin: 0;
+	text-transform: capitalize;
+}
+
+.meta {
+	background-color: #30a7d7;
+	margin-top: 10px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.normal {
+	background-color: #aa9;
+}
+
+.fire {
+	background-color: #f42;
+}
+
+.water {
+	background-color: #39f;
+}
+
+.electric {
+	background-color: #fc3;
+}
+
+.grass {
+	background-color: #7c5;
+}
+
+.ice {
+	background-color: #6cf;
+}
+
+.fighting {
+	background-color: #b54;
+}
+
+.poison {
+	background-color: #a59;
+}
+
+.ground {
+	background-color: #db5;
+}
+
+.flying {
+	background-color: #89f;
+}
+
+.psychic {
+	background-color: #f59;
+}
+
+.bug {
+	background-color: #ab2;
+}
+
+.rock {
+	background-color: #ba6;
+}
+
+.ghost {
+	background-color: #66b;
+}
+
+.dragon {
+	background-color: #76e;
+}
+
+.bounce {
+	animation: bounce 4s both infinite;
+	animation-delay: -2s;
+}
+
+.img-intro {
+	animation: img-intro 0.5s forwards;
+}
+
+.info-intro {
+	animation: info-intro 0.5s forwards;
+}
+
+.img-exit {
+	animation: img-exit 0.5s forwards;
+}
+
+.info-exit {
+	animation: info-exit 0.5s forwards;
+}
+
+@keyframes img-intro {
+	from {
+		left: -100%;
+	}
+  	to {
+  		left: 20%;
+  	}
+}
+
+@keyframes info-intro {
+	from {
+		right: -100%;
+	}
+  	to {
+  		right: 20%;
+  	}
+}
+
+@keyframes img-exit {
+	from {
+		left: 20%;
+	}
+  	to {
+  		left: -100%;
+  	}
+}
+
+@keyframes info-exit {
+	from {
+		right: 20%;
+	}
+  	to {
+  		right: -100%;
+  	}
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0px);
+	}
+	74% {
+		transform: translateY(0px);
+	}
+  75% {
+            transform: translateY(0px);
+            animation-timing-function: ease-in;
+  }
+  85% {
+            transform: translateY(-24px);
+            animation-timing-function: ease-in;
+  }
+  91% {
+            transform: translateY(-12px);
+            animation-timing-function: ease-in;
+  }
+  95% {
+            transform: translateY(-6px);
+            animation-timing-function: ease-in;
+  }
+  98% {
+            transform: translateY(-4px);
+            animation-timing-function: ease-in;
+  }
+  81%,
+  89%,
+  93%,
+  97% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+  }
+  100% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+  }
+}
