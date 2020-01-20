@@ -11,15 +11,15 @@
 	<body>
 		<jsp:include page="./header.jsp"></jsp:include>
 		<main class="container">
-			<a class="intro-animation-button" onclick="changePage('/searchPokemon.do')">
+			<a class="button intro-animation-button" onclick="changePage('/searchPokemon.do')">
 				<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png" class="intro-animation-image">
 				Search Pokemon
 			</a>
-			<a class="intro-animation-button" onclick="changePage('/createPokemon.do')">
+			<a class="button intro-animation-button" onclick="changePage('/createPokemon.do')">
 				<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png" class="intro-animation-image">
 				create Pokemon
 			</a>
-			<a class="intro-animation-button" onclick="changePage('/pokedex.do')">
+			<a class="button intro-animation-button" onclick="changePage('/pokedex.do')">
 				<img alt="pokeball" src="http://pngimg.com/uploads/pokeball/pokeball_PNG19.png" class="intro-animation-image">
 				Pokedex
 			</a>
@@ -28,7 +28,7 @@
 		<jsp:include page="./bottomScript.js"></jsp:include>
 	</body>
 	<script type="text/javascript">
-		let anchors = document.querySelectorAll("a");
+		let anchors = document.querySelectorAll(".button");
 		function changePage(url) {
 				anchors.forEach((a, i) => {
 					console.log("hello world")

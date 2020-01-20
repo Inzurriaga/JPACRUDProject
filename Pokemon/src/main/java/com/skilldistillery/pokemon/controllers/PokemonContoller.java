@@ -1,7 +1,5 @@
 package com.skilldistillery.pokemon.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,9 +34,13 @@ public class PokemonContoller {
 	@RequestMapping(path = "/searchPokemonById.do")
 	public String searchById(@RequestParam("dexNumber") Integer dex, Model model) {
 		Pokemon pokemon = dao.findById(dex);
-		model.addAttribute("pokemon", pokemon);
-		model.addAttribute("types", convertTypeData(pokemon.getType()));
-		return "displayInfo";
+		if(pokemon == null) {
+			return "error";
+		} else {
+			model.addAttribute("pokemon", pokemon);
+			model.addAttribute("types", convertTypeData(pokemon.getType()));
+			return "displayInfo";
+		}
 	}
 	
 	@RequestMapping(path = "/searchPokemonByName.do")

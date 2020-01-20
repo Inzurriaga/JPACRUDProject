@@ -6,7 +6,7 @@ main {
 	height: 40vh;
 }
 
-a {
+.button {
 	min-width: 500px;
 	height: 65px;
 	font-weight: bold;
@@ -35,11 +35,11 @@ img {
 	animation: exit-button-animation 0.5s forwards;
 }
 
-a:nth-child(2) {
+.button:nth-child(2) {
 	animation-delay: 0.25s;	
 }
 
-a:nth-child(3) {
+.button:nth-child(3) {
 	animation-delay: 0.5s;
 }
 

@@ -2,5 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <header>
-	<h1>Pokemon Pokedex</h1>
+	<a href="/">
+		<h1>Pokemon Pokedex</h1>
+	</a>
 </header>

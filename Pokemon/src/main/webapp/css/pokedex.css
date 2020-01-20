@@ -1,0 +1,70 @@
+img {
+	height: 300px;
+}
+
+a {
+	margin: 0 10px;
+	text-decoration: none;
+    font-weight: normal; 
+}
+
+main {
+	height: 100%;
+}
+
+section {
+	padding-top: 10px;
+	position: absolute;
+	bottom: 100px;	
+	display: flex;
+	overflow: scroll;
+	width: 100vw;
+	animation: intro 0.5s forwards;
+}
+
+img:hover {
+	animation: bounce 1s both infinite;
+}
+
+@keyframes intro {
+	from {
+		right: -100%;
+	}
+	to {
+		right: 0;  
+	}
+}
+
+@keyframes bounce {
+  0% {
+            transform: translateY(0px);
+            animation-timing-function: ease-in;
+  }
+  40% {
+            transform: translateY(-24px);
+            animation-timing-function: ease-in;
+  }
+  65% {
+            transform: translateY(-12px);
+            animation-timing-function: ease-in;
+  }
+  82% {
+            transform: translateY(-6px);
+            animation-timing-function: ease-in;
+  }
+  93% {
+            transform: translateY(-4px);
+            animation-timing-function: ease-in;
+  }
+  25%,
+  55%,
+  75%,
+  87% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+  }
+  100% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+  }
+}
